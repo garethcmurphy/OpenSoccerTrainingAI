@@ -4,6 +4,13 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+folium = "*"
+matplotlib = "*"
+numpy = "*"
+pandas = "*"
+plotly = "*"
+streamlit = "*"
+pytest = "*"
 
 [dev-packages]
 
