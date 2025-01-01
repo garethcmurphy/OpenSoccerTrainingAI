@@ -18,15 +18,16 @@ CONE_POSITIONS = [(10, 10), (20, 40), (30, 20), (50, 25), (70, 35), (90, 10)]
 PITCH_LENGTH = 105
 PITCH_WIDTH = 68
 PITCH_DIMENSIONS = (PITCH_LENGTH, PITCH_WIDTH)
+PENALTY_SPOT_POSITIONS = [(11, PITCH_WIDTH/2.), (PITCH_LENGTH - 12, PITCH_WIDTH/2.)]
 LINE_WIDTH = 2
 CENTER_CIRCLE_RADIUS = 9.15
 CENTER_SPOT_RADIUS = 0.8
-PENALTY_AREA_DIMENSIONS = (16, 19)
-GOAL_AREA_DIMENSIONS = (6, 19)
+PENALTY_AREA_DIMENSIONS = (16.5, 40.3)
+GOAL_AREA_DIMENSIONS = (5.5, 18.32)
 PENALTY_SPOT_RADIUS = 0.8
-GOAL_DIMENSIONS = (0.5, 6)
+GOAL_DIMENSIONS = (0.5, 7.32)
 PENALTY_ARC_DIMENSIONS = (18.3, 18.3)
-HALFWAY_LINE_COORDS = ([PITCH_LENGTH/2., PITCH_LENGTH/2.], [0, PITCH_WIDTH])
+HALFWAY_LINE_COORDS = ([PITCH_LENGTH / 2.0, PITCH_LENGTH / 2.0], [0, PITCH_WIDTH])
 
 
 class ConeLayoutDrawer:
@@ -76,12 +77,17 @@ class ConeLayoutDrawer:
 
     def draw_center_circle(self):
         center_circle = plt.Circle(
-            (PITCH_LENGTH/2., PITCH_WIDTH/2.), CENTER_CIRCLE_RADIUS, color="white", fill=False
+            (PITCH_LENGTH / 2.0, PITCH_WIDTH / 2.0),
+            CENTER_CIRCLE_RADIUS,
+            color="white",
+            fill=False,
         )
         self.ax.add_artist(center_circle)
 
     def draw_center_spot(self):
-        center_spot = plt.Circle((PITCH_LENGTH/2., PITCH_WIDTH/2.), CENTER_SPOT_RADIUS, color="white")
+        center_spot = plt.Circle(
+            (PITCH_LENGTH / 2.0, PITCH_WIDTH / 2.0), CENTER_SPOT_RADIUS, color="white"
+        )
         self.ax.add_artist(center_spot)
 
     def draw_penalty_areas(self):
@@ -104,7 +110,7 @@ class ConeLayoutDrawer:
 
     def draw_goal_areas(self):
         goal_area = patches.Rectangle(
-            (0, 18),
+            (0, PITCH_WIDTH / 2.0 - GOAL_AREA_DIMENSIONS[1] / 2),
             *GOAL_AREA_DIMENSIONS,
             linewidth=LINE_WIDTH,
             edgecolor="white",
@@ -112,7 +118,10 @@ class ConeLayoutDrawer:
         )
         self.ax.add_patch(goal_area)
         goal_area = patches.Rectangle(
-            (PITCH_LENGTH - GOAL_AREA_DIMENSIONS[0], 18),
+            (
+                PITCH_LENGTH - GOAL_AREA_DIMENSIONS[0],
+                PITCH_WIDTH / 2.0 - GOAL_AREA_DIMENSIONS[1] / 2,
+            ),
             *GOAL_AREA_DIMENSIONS,
             linewidth=LINE_WIDTH,
             edgecolor="white",
@@ -122,13 +131,13 @@ class ConeLayoutDrawer:
 
     def draw_penalty_spots(self):
         penalty_spot = plt.Circle(
-            (12, PITCH_WIDTH/2.),
+            PENALTY_SPOT_POSITIONS[0],
             PENALTY_SPOT_RADIUS,
             color="white",
         )
         self.ax.add_artist(penalty_spot)
         penalty_spot = plt.Circle(
-            (100 - 12, PITCH_WIDTH/2.),
+            PENALTY_SPOT_POSITIONS[1],
             PENALTY_SPOT_RADIUS,
             color="white",
         )
@@ -136,7 +145,7 @@ class ConeLayoutDrawer:
 
     def draw_goals(self):
         goal = patches.Rectangle(
-            (0, 22),
+            (0, PITCH_WIDTH / 2.0 - GOAL_DIMENSIONS[1] / 2),
             *GOAL_DIMENSIONS,
             linewidth=LINE_WIDTH,
             edgecolor="white",
@@ -144,7 +153,10 @@ class ConeLayoutDrawer:
         )
         self.ax.add_patch(goal)
         goal = patches.Rectangle(
-            (PITCH_LENGTH - GOAL_DIMENSIONS[0], 22),
+            (
+                PITCH_LENGTH - GOAL_DIMENSIONS[0],
+                PITCH_WIDTH / 2.0 - GOAL_DIMENSIONS[1] / 2,
+            ),
             *GOAL_DIMENSIONS,
             linewidth=LINE_WIDTH,
             edgecolor="white",
