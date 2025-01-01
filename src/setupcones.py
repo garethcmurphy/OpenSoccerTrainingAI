@@ -13,7 +13,7 @@ class ConeLayoutSetup:
         self.filename = filename
 
     def setup_zigzag(self):
-        cone_positions = [(i * 6, 25 + (i % 2) * 12 - 6) for i in range(10)]
+        cone_positions = [(25 + i * 6, 15 + (i % 2) * 12 - 6) for i in range(10)]
         self._draw_and_save(cone_positions, "zigzag_layout.png")
 
     def setup_diagonal(self):
@@ -29,8 +29,15 @@ class ConeLayoutSetup:
         self._draw_and_save(cone_positions, "column_layout.png")
 
     def setup_square(self):
-        cone_positions = [(i // 2, i % 2) for i in range(20)]
-        self._draw_and_save(cone_positions, "square_layout.png")
+        side_length = 15
+        cone_positions = []
+        for x in range(side_length):
+            cone_positions.append((x, 0))
+            cone_positions.append((x, side_length - 1))
+        for y in range(1, side_length - 1):
+            cone_positions.append((0, y))
+            cone_positions.append((side_length - 1, y))
+        self._draw_and_save(cone_positions, "hollow_square_layout.png")
 
     def _draw_and_save(self, cone_positions, filename):
         drawer = ConeLayoutDrawer(cone_positions, filename)
