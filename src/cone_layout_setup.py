@@ -33,17 +33,29 @@ class ConeLayoutSetup:
             )
             for i in range(NUM_CONES)
         ]
-        self._draw_and_save(cone_positions, "zigzag_layout.png")
+        self._draw_and_save(
+            cone_positions,
+            "zigzag_layout.png",
+            "Zigzag Layout",
+        )
 
     def setup_diagonal(self):
         cone_positions = [
             (i * DIAGONAL_STEP, i * DIAGONAL_STEP) for i in range(NUM_CONES)
         ]
-        self._draw_and_save(cone_positions, "diagonal_layout.png")
+        self._draw_and_save(
+            cone_positions,
+            "diagonal_layout.png",
+            "Diagonal Layout",
+        )
 
     def setup_row(self):
         cone_positions = [(i * ROW_STEP, ROW_Y) for i in range(NUM_CONES)]
-        self._draw_and_save(cone_positions, "row_layout.png")
+        self._draw_and_save(
+            cone_positions,
+            "row_layout.png",
+            "Row Layout",
+        )
 
     def setup_column(self):
         cone_positions = [
@@ -53,7 +65,11 @@ class ConeLayoutSetup:
             )
             for i in range(NUM_CONES)
         ]
-        self._draw_and_save(cone_positions, "column_layout.png")
+        self._draw_and_save(
+            cone_positions,
+            "column_layout.png",
+            "Column Layout",
+        )
 
     def setup_square(self):
         cone_positions = []
@@ -63,10 +79,10 @@ class ConeLayoutSetup:
         for y in range(1, SQUARE_SIDE_LENGTH - 1):
             cone_positions.append((0, y))
             cone_positions.append((SQUARE_SIDE_LENGTH - 1, y))
-        self._draw_and_save(cone_positions, "hollow_square_layout.png")
+        self._draw_and_save(cone_positions, "hollow_square_layout.png", "Hollow Square Layout")
 
-    def _draw_and_save(self, cone_positions, filename):
-        drawer = ConeLayoutDrawer(cone_positions, filename)
+    def _draw_and_save(self, cone_positions, filename, title):
+        drawer = ConeLayoutDrawer(cone_positions, filename, title)
         drawer.save_plot()
 
 

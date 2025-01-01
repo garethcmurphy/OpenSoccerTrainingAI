@@ -42,9 +42,15 @@ PENALTY_ARC_THETA4 = 232
 class ConeLayoutDrawer:
     """Cone layout drawer class"""
 
-    def __init__(self, cone_positions, filename="cone_layout.png"):
+    def __init__(
+        self,
+        cone_positions,
+        filename="cone_layout.png",
+        title="Football Pitch with Orange Cones",
+    ):
         self.cone_positions = cone_positions
         self.filename = filename
+        self.title = title
         self.fig, self.ax = plt.subplots(figsize=FIG_SIZE)
         self.setup_pitch()
 
@@ -214,7 +220,7 @@ class ConeLayoutDrawer:
     def set_labels(self):
         self.ax.set_xlim(0, PITCH_LENGTH)
         self.ax.set_ylim(0, PITCH_WIDTH)
-        self.ax.set_title("Football Pitch with Orange Cones")
+        self.ax.set_title(self.title)
         self.ax.set_xlabel("Length")
         self.ax.set_ylabel("Width")
 
@@ -231,5 +237,7 @@ if __name__ == "__main__":
         (70, 35),
         (90, 10),
     ]
-    drawer = ConeLayoutDrawer(cone_positions, "cone_layout.png")
+    drawer = ConeLayoutDrawer(
+        cone_positions, "cone_layout.png", "Custom Title for Cone Layout"
+    )
     drawer.save_plot()
