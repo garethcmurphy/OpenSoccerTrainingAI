@@ -12,9 +12,9 @@ ZIGZAG_STEP_X = 6
 ZIGZAG_STEP_Y = 12
 DIAGONAL_STEP = 6
 ROW_Y = 20
-ROW_STEP = 2
-COLUMN_X = 20
-COLUMN_STEP = 2
+ROW_STEP = 4
+COLUMN_X = 15
+COLUMN_STEP = 4
 SQUARE_SIDE_LENGTH = 15
 NUM_CONES = 10
 
@@ -50,7 +50,7 @@ class ConeLayoutSetup:
         )
 
     def setup_row(self):
-        cone_positions = [(i * ROW_STEP, ROW_Y) for i in range(NUM_CONES)]
+        cone_positions = [(5+ i * ROW_STEP, ROW_Y) for i in range(NUM_CONES)]
         self._draw_and_save(
             cone_positions,
             "row_layout.png",
@@ -61,7 +61,7 @@ class ConeLayoutSetup:
         cone_positions = [
             (
                 COLUMN_X,
-                i * COLUMN_STEP,
+                5+ i * COLUMN_STEP,
             )
             for i in range(NUM_CONES)
         ]
