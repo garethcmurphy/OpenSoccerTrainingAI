@@ -3,6 +3,7 @@
 Setup some standard cone layouts
 like zigzag, diagonal, square, etc.
 """
+
 import math
 
 from cone_layout_drawer import ConeLayoutDrawer
@@ -28,6 +29,7 @@ class ConeLayoutSetup:
         self.filename = filename
 
     def setup_zigzag(self):
+        """Dribble Drill (Zigzag)"""
         cone_positions = [
             (
                 ZIGZAG_START_X + i * ZIGZAG_STEP_X,
@@ -42,6 +44,7 @@ class ConeLayoutSetup:
         )
 
     def setup_diagonal(self):
+        """Shooting Drill (Diagonal Layout)"""
         cone_positions = [
             (i * DIAGONAL_STEP, i * DIAGONAL_STEP) for i in range(NUM_CONES)
         ]
@@ -52,6 +55,7 @@ class ConeLayoutSetup:
         )
 
     def setup_row(self):
+        """Agility Drill (Row Layout)"""
         cone_positions = [(5 + i * ROW_STEP, ROW_Y) for i in range(NUM_CONES)]
         self._draw_and_save(
             cone_positions,
@@ -60,6 +64,7 @@ class ConeLayoutSetup:
         )
 
     def setup_column(self):
+        """Agility Drill (Column Layout)"""
         cone_positions = [
             (
                 COLUMN_X,
@@ -74,6 +79,7 @@ class ConeLayoutSetup:
         )
 
     def setup_square(self):
+        """Turning Drill (Square)"""
         cone_positions = []
         for x in range(SQUARE_SIDE_LENGTH):
             cone_positions.append((x, 0))
@@ -86,20 +92,22 @@ class ConeLayoutSetup:
             "hollow_square_layout.png",
             "Turning Drill (Square)",
         )
-    
+
     def circle_layout(self):
         """Agility Drill (Circle Layout)"""
         cone_positions = []
         for i in range(0, 360, 10):
-            cone_positions.append((10 * math.cos(math.radians(i)), 10 * math.sin(math.radians(i))))
+            cone_positions.append(
+                (10 * math.cos(math.radians(i)), 10 * math.sin(math.radians(i)))
+            )
         self._draw_and_save(
             cone_positions,
             "circle_layout.png",
             "Agility Drill Circle Layout",
         )
-        
 
     def _draw_and_save(self, cone_positions, filename, title):
+        """Draw and save the cone layout"""
         drawer = ConeLayoutDrawer(
             cone_positions,
             "./src/assets/images/" + filename,
