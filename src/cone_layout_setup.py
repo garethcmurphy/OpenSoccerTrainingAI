@@ -50,7 +50,7 @@ class ConeLayoutSetup:
         )
 
     def setup_row(self):
-        cone_positions = [(5+ i * ROW_STEP, ROW_Y) for i in range(NUM_CONES)]
+        cone_positions = [(5 + i * ROW_STEP, ROW_Y) for i in range(NUM_CONES)]
         self._draw_and_save(
             cone_positions,
             "row_layout.png",
@@ -61,7 +61,7 @@ class ConeLayoutSetup:
         cone_positions = [
             (
                 COLUMN_X,
-                5+ i * COLUMN_STEP,
+                5 + i * COLUMN_STEP,
             )
             for i in range(NUM_CONES)
         ]
