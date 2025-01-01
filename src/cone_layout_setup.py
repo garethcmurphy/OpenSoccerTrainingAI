@@ -3,6 +3,8 @@
 Setup some standard cone layouts
 like zigzag, diagonal, square, etc.
 """
+import math
+
 from cone_layout_drawer import ConeLayoutDrawer
 
 # Constants
@@ -84,6 +86,18 @@ class ConeLayoutSetup:
             "hollow_square_layout.png",
             "Turning Drill (Square)",
         )
+    
+    def circle_layout(self):
+        """Agility Drill (Circle Layout)"""
+        cone_positions = []
+        for i in range(0, 360, 10):
+            cone_positions.append((10 * math.cos(math.radians(i)), 10 * math.sin(math.radians(i))))
+        self._draw_and_save(
+            cone_positions,
+            "circle_layout.png",
+            "Agility Drill Circle Layout",
+        )
+        
 
     def _draw_and_save(self, cone_positions, filename, title):
         drawer = ConeLayoutDrawer(
