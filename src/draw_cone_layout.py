@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
-"""Draw cone layout using matplotlib
+"""
+Draw cone layout using matplotlib
 with green background and orange cones
-for multiple drills"""
+for multiple drills
+"""
 import matplotlib.patches as patches
 import matplotlib.pyplot as plt
 
