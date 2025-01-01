@@ -54,7 +54,13 @@ class ConeLayoutDrawer:
 
     def draw_cones(self):
         for x, y in CONE_POSITIONS:
-            self.ax.scatter(x, y, color=CONE_COLOR, s=CONE_SIZE, marker=CONE_MARKER)
+            self.ax.scatter(
+                x,
+                y,
+                color=CONE_COLOR,
+                s=CONE_SIZE,
+                marker=CONE_MARKER,
+            )
 
     def draw_lines(self):
         self.draw_center_circle()
@@ -113,9 +119,17 @@ class ConeLayoutDrawer:
         self.ax.add_patch(goal_area)
 
     def draw_penalty_spots(self):
-        penalty_spot = plt.Circle((12, 25), PENALTY_SPOT_RADIUS, color="white")
+        penalty_spot = plt.Circle(
+            (12, 25),
+            PENALTY_SPOT_RADIUS,
+            color="white",
+        )
         self.ax.add_artist(penalty_spot)
-        penalty_spot = plt.Circle((100 - 12, 25), PENALTY_SPOT_RADIUS, color="white")
+        penalty_spot = plt.Circle(
+            (100 - 12, 25),
+            PENALTY_SPOT_RADIUS,
+            color="white",
+        )
         self.ax.add_artist(penalty_spot)
 
     def draw_goals(self):
