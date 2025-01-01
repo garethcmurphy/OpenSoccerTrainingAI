@@ -1,5 +1,7 @@
 # ⚽ AR Soccer Drill Setup 📱
 
+![](./cone_layout.png)
+
 Revolutionize Your Training with Augmented Reality
 
 Welcome to AR Soccer Drill Setup, the ultimate tool for soccer players and coaches! Using augmented reality (AR), this app helps you precisely position training cones and markers on the field, directly through your iPhone. Say goodbye to guesswork and hello to accuracy and efficiency in setting up your drills!
