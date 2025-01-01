@@ -35,6 +35,36 @@ def main():
         )
     )
     drills.add_drill(Drill("1v1 drills", "Enhance dribbling skills", 120))
+    drills.add_drill(Drill("Fitness drills", "Improve stamina and speed", 45))
+    drills.add_drill(Drill("Defensive drills", "Enhance defensive skills", 60))
+    drills.add_drill(Drill("Attacking drills", "Enhance attacking skills", 60))
+    drills.add_drill(
+        Drill(
+            "Goalkeeping drills",
+            "Enhance goalkeeping skills",
+            60,
+        )
+    )
+    drills.add_drill(Drill("Tactical drills", "Enhance tactical skills", 60))
+    drills.add_drill(Drill("Set-piece drills", "Enhance set-piece skills", 60))
+    drills.add_drill(
+        Drill(
+            "Conditioning drills",
+            "Enhance conditioning skills",
+            60,
+        )
+    )
+    drills.add_drill(Drill("Recovery drills", "Enhance recovery skills", 60))
+    drills.add_drill(Drill("Warm-up drills", "Enhance warm-up skills", 60))
+    drills.add_drill(Drill("Cool-down drills", "Enhance cool-down skills", 60))
+    drills.add_drill(Drill("Technical drills", "Enhance technical skills", 60))
+    drills.add_drill(Drill("Physical drills", "Enhance physical skills", 60))
+    drills.add_drill(Drill("Mental drills", "Enhance mental skills", 60))
+    drills.add_drill(Drill("Speed drills", "Enhance speed skills", 60))
+    drills.add_drill(Drill("Agility drills", "Enhance agility skills", 60))
+    drills.add_drill(Drill("Strength drills", "Enhance strength skills", 60))
+    drills.add_drill(Drill("Power drills", "Enhance power skills", 60))
+    drills.add_drill(Drill("Endurance drills", "Enhance endurance skills", 60))
 
     print(drills)
 
