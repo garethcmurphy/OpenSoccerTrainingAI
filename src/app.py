@@ -23,7 +23,14 @@ st.title("Soccer Training App")
 # Sidebar for navigation
 with st.sidebar:
     st.header("Navigation")
-    selected_page = st.selectbox("Select Page", ["Training Log", "Statistics", "Map"])
+    selected_page = st.selectbox(
+        "Select Page",
+        [
+            "Training Log",
+            "Statistics",
+            "Map",
+        ],
+    )
 
 # Display content based on selected page
 if selected_page == "Training Log":
@@ -32,7 +39,8 @@ if selected_page == "Training Log":
 
 elif selected_page == "Statistics":
     st.header("Statistics")
-    # Add code to calculate and display statistics (e.g., average training duration, most frequent drills)
+    # Add code to calculate and display statistics (e.g.,
+    # average training duration, most frequent drills)
 
 elif selected_page == "Map":
     st.header("Map")
@@ -46,4 +54,5 @@ elif selected_page == "Map":
         ).add_to(map)
     st.folium_map(map)
 
-# Add more sections and features as needed (e.g., player profiles, goal tracking)
+# Add more sections and features as needed
+# (e.g., player profiles, goal tracking)
