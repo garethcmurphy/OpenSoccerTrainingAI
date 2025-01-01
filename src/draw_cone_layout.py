@@ -17,7 +17,10 @@ CONE_MARKER = "^"
 PITCH_LENGTH = 105
 PITCH_WIDTH = 68
 PITCH_DIMENSIONS = (PITCH_LENGTH, PITCH_WIDTH)
-PENALTY_SPOT_POSITIONS = [(11, PITCH_WIDTH / 2), (PITCH_LENGTH - 11, PITCH_WIDTH / 2)]
+PENALTY_SPOT_POSITIONS = [
+    (11, PITCH_WIDTH / 2),
+    (PITCH_LENGTH - 11, PITCH_WIDTH / 2),
+]
 LINE_WIDTH = 2
 CENTER_CIRCLE_RADIUS = 9.15
 CENTER_SPOT_RADIUS = 0.8
@@ -30,6 +33,10 @@ GOAL_WIDTH = 7.32
 GOAL_DEPTH = 0.5
 PENALTY_ARC_RADIUS = 9.15
 HALFWAY_LINE_COORDS = ([PITCH_LENGTH / 2, PITCH_LENGTH / 2], [0, PITCH_WIDTH])
+PENALTY_ARC_THETA1 = 308
+PENALTY_ARC_THETA2 = 52
+PENALTY_ARC_THETA3 = 128
+PENALTY_ARC_THETA4 = 232
 
 
 class ConeLayoutDrawer:
@@ -90,7 +97,9 @@ class ConeLayoutDrawer:
 
     def draw_center_spot(self):
         center_spot = plt.Circle(
-            (PITCH_LENGTH / 2, PITCH_WIDTH / 2), CENTER_SPOT_RADIUS, color="white"
+            (PITCH_LENGTH / 2, PITCH_WIDTH / 2),
+            CENTER_SPOT_RADIUS,
+            color="white",
         )
         self.ax.add_artist(center_spot)
 
@@ -105,7 +114,10 @@ class ConeLayoutDrawer:
         )
         self.ax.add_patch(penalty_area)
         penalty_area = patches.Rectangle(
-            (PITCH_LENGTH - PENALTY_AREA_DEPTH, (PITCH_WIDTH - PENALTY_AREA_WIDTH) / 2),
+            (
+                PITCH_LENGTH - PENALTY_AREA_DEPTH,
+                (PITCH_WIDTH - PENALTY_AREA_WIDTH) / 2,
+            ),
             PENALTY_AREA_DEPTH,
             PENALTY_AREA_WIDTH,
             linewidth=LINE_WIDTH,
@@ -125,7 +137,10 @@ class ConeLayoutDrawer:
         )
         self.ax.add_patch(goal_area)
         goal_area = patches.Rectangle(
-            (PITCH_LENGTH - GOAL_AREA_DEPTH, (PITCH_WIDTH - GOAL_AREA_WIDTH) / 2),
+            (
+                PITCH_LENGTH - GOAL_AREA_DEPTH,
+                (PITCH_WIDTH - GOAL_AREA_WIDTH) / 2,
+            ),
             GOAL_AREA_DEPTH,
             GOAL_AREA_WIDTH,
             linewidth=LINE_WIDTH,
@@ -174,8 +189,8 @@ class ConeLayoutDrawer:
             2 * PENALTY_ARC_RADIUS,
             2 * PENALTY_ARC_RADIUS,
             angle=0,
-            theta1=300,
-            theta2=60,
+            theta1=PENALTY_ARC_THETA1,
+            theta2=PENALTY_ARC_THETA2,
             linewidth=LINE_WIDTH,
             edgecolor="white",
         )
@@ -185,8 +200,8 @@ class ConeLayoutDrawer:
             2 * PENALTY_ARC_RADIUS,
             2 * PENALTY_ARC_RADIUS,
             angle=0,
-            theta1=120,
-            theta2=240,
+            theta1=PENALTY_ARC_THETA3,
+            theta2=PENALTY_ARC_THETA4,
             linewidth=LINE_WIDTH,
             edgecolor="white",
         )
@@ -208,6 +223,13 @@ class ConeLayoutDrawer:
 
 
 if __name__ == "__main__":
-    cone_positions = [(10, 10), (20, 40), (30, 20), (50, 25), (70, 35), (90, 10)]
+    cone_positions = [
+        (10, 10),
+        (20, 40),
+        (30, 20),
+        (50, 25),
+        (70, 35),
+        (90, 10),
+    ]
     drawer = ConeLayoutDrawer(cone_positions, "cone_layout.png")
     drawer.save_plot()
