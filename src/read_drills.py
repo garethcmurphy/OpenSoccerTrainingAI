@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 read the drills from the soccer
- file and put in datafram
+ file and put in dataframe
 """
 
 import pandas as pd
