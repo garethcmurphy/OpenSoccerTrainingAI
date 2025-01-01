@@ -2,6 +2,8 @@
 """
 Setup some standard cone layouts
 like zigzag, diagonal, square, etc.
+for turning, shooting, dribbling,
+and agility drills.
 """
 
 import math
