@@ -36,7 +36,7 @@ class ConeLayoutSetup:
         self._draw_and_save(
             cone_positions,
             "zigzag_layout.png",
-            "Zigzag Layout",
+            "Dribble Drill (Zigzag)",
         )
 
     def setup_diagonal(self):
@@ -68,7 +68,7 @@ class ConeLayoutSetup:
         self._draw_and_save(
             cone_positions,
             "column_layout.png",
-            "Column Layout",
+            "Agility Drill (Column Layout)",
         )
 
     def setup_square(self):
@@ -82,11 +82,15 @@ class ConeLayoutSetup:
         self._draw_and_save(
             cone_positions,
             "hollow_square_layout.png",
-            "Hollow Square Layout",
+            "Turning Drill (Square)",
         )
 
     def _draw_and_save(self, cone_positions, filename, title):
-        drawer = ConeLayoutDrawer(cone_positions, filename, title)
+        drawer = ConeLayoutDrawer(
+            cone_positions,
+            "./src/assets/images/" + filename,
+            title,
+        )
         drawer.save_plot()
 
 
