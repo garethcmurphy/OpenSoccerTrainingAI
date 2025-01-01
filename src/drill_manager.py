@@ -9,6 +9,7 @@ import pydantic
 
 
 class Drill(pydantic.BaseModel):
+    """Class to setup drills for cone layout drawing"""
     cone_positions: List[Tuple[int, int]]
     calories: int
     time_taken: int
@@ -16,6 +17,7 @@ class Drill(pydantic.BaseModel):
     filename: str
 
     class Config:
+        """Pydantic configuration"""
         arbitrary_types_allowed = True
 
     def __str__(self):
@@ -27,6 +29,7 @@ and cone layout saved as {self.filename}
 
 
 class DrillManager:
+    """Class to manage drills for cone layout drawing"""
     def __init__(self, drills: List[Drill]):
         self.drills = drills
 
@@ -35,6 +38,7 @@ class DrillManager:
 
 
 def main():
+    """Main function to test the DrillManager class"""
     drills_data = [
         {
             "cone_positions": [
