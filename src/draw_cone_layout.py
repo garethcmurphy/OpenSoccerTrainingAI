@@ -14,7 +14,6 @@ BACKGROUND_COLOR = "white"
 CONE_COLOR = "orange"
 CONE_SIZE = 200
 CONE_MARKER = "^"
-CONE_POSITIONS = [(10, 10), (20, 40), (30, 20), (50, 25), (70, 35), (90, 10)]
 PITCH_LENGTH = 105
 PITCH_WIDTH = 68
 PITCH_DIMENSIONS = (PITCH_LENGTH, PITCH_WIDTH)
@@ -36,7 +35,9 @@ HALFWAY_LINE_COORDS = ([PITCH_LENGTH / 2, PITCH_LENGTH / 2], [0, PITCH_WIDTH])
 class ConeLayoutDrawer:
     """Cone layout drawer class"""
 
-    def __init__(self):
+    def __init__(self, cone_positions, filename="cone_layout.png"):
+        self.cone_positions = cone_positions
+        self.filename = filename
         self.fig, self.ax = plt.subplots(figsize=FIG_SIZE)
         self.setup_pitch()
 
@@ -59,7 +60,7 @@ class ConeLayoutDrawer:
         self.ax.add_patch(pitch)
 
     def draw_cones(self):
-        for x, y in CONE_POSITIONS:
+        for x, y in self.cone_positions:
             self.ax.scatter(
                 x,
                 y,
@@ -173,8 +174,8 @@ class ConeLayoutDrawer:
             2 * PENALTY_ARC_RADIUS,
             2 * PENALTY_ARC_RADIUS,
             angle=0,
-            theta1=308,
-            theta2=52,
+            theta1=300,
+            theta2=60,
             linewidth=LINE_WIDTH,
             edgecolor="white",
         )
@@ -184,8 +185,8 @@ class ConeLayoutDrawer:
             2 * PENALTY_ARC_RADIUS,
             2 * PENALTY_ARC_RADIUS,
             angle=0,
-            theta1=128,
-            theta2=232,
+            theta1=120,
+            theta2=240,
             linewidth=LINE_WIDTH,
             edgecolor="white",
         )
@@ -202,10 +203,11 @@ class ConeLayoutDrawer:
         self.ax.set_xlabel("Length")
         self.ax.set_ylabel("Width")
 
-    def save_plot(self, filename="cone_layout.png"):
-        plt.savefig(filename)
+    def save_plot(self):
+        plt.savefig(self.filename)
 
 
 if __name__ == "__main__":
-    drawer = ConeLayoutDrawer()
+    cone_positions = [(10, 10), (20, 40), (30, 20), (50, 25), (70, 35), (90, 10)]
+    drawer = ConeLayoutDrawer(cone_positions, "cone_layout.png")
     drawer.save_plot()
